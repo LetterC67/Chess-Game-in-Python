@@ -20,3 +20,8 @@ game.displayBoard() #see the difference
 - User can play 2 mode: computer vs human(easy, medium and hard) or human vs human. 
 - This game has save and load game feature.
 - Chess puzzles are available
+## 3. Contributing
+- Any comments, pull requests are welcome!
+## 4. License
+- My name: Hoang Le
+- Feel free to contact: Email: hoangdeptoong@gmail.com
