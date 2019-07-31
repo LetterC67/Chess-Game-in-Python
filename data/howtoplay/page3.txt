@@ -1,0 +1,4 @@
+12;normal;w;    - Each piece has its own way of moving. In the next diagrams, the dots mark the squares to which the piece can move if there are no intervening piece(s) of either color (except the knight, which leaps over any intervening pieces).
+12;normal;w;    - The king moves one square in any direction. The king also has a special move called castling that involves also moving a rook.
+IMAGE;Image\KingMove.png
+END

@@ -1,0 +1,9 @@
+30;normal;center;HOW TO PLAY
+20;normal;nw;  1.SETUP
+15;normal;nw;  - Chess game pieces are divided into white and black sets. Each set consists of 16 pieces: one king, one queen, two rooks, two bishops, two knights, and eight pawns.
+IMAGE;Image\ChessBoard.png
+12;normal;center;  Initial position, first (bottom) row: rook, knight, bishop, queen, king, bishop, knight, and rook - second row: pawns
+END
+20;normal;nw;  2.MOVEMENT
+
+END

@@ -1,0 +1,6 @@
+20;normal;nw;    3. Check
+12;normal;nw;      - When a king is under immediate attack by one or two of the opponent's pieces, it is said to be in check. A move in response to a check is legal only if it results in a position where the king is no longer in check. This can involve capturing the checking piece; interposing a piece between the checking piece and the king (which is possible only if the attacking piece is a queen, rook, or bishop and there is a square between it and the king); or moving the king to a square where it is not under attack. Castling is not a permissible response to a check.
+12;normal;nw;      - The object of the game is to checkmate the opponent, this occurs when the opponent's king is in check, and there is no legal way to remove it from attack. It is never legal for a player to make a move that puts or leaves the player's own king in check. In casual games it is common to announce "check" when putting the opponent's king in check, but this is not required by the rules of chess, and is not usually done in tournaments.
+IMAGE;Image\Check.png
+10;normal;center;The black king is in check by the rook.
+END

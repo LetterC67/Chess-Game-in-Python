@@ -1,0 +1,8 @@
+20;normal;w;   2. Movement
+12;normal;w;    - The player with the white pieces moves first, after which players alternate turns, moving one piece per turn (except for castling, when two pieces are moved). A piece is moved to either an unoccupied square or one occupied by an opponent's piece, which is captured and removed from play. With the sole exception of en passant, all pieces capture by moving to the square that the opponent's piece occupies.
+ENDL
+12;normal;w;    - Moving is compulsory, it is illegal to skip a turn, even when having to move is detrimental. A player may not make any move that would put or leave the player's own king in check. If the player to move has no legal move, the game is over, the result is either checkmate (a loss for the player with no legal move) if the king is in check, or stalemate (a draw) if the king is not.
+ENDL
+12;normal;w;    - The king moves one square in any direction. The king also has a special move called castling that involves also moving a rook.
+IMAGE;Image\KingMove.png
+END

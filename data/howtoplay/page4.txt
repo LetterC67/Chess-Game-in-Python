@@ -1,0 +1,3 @@
+12;normal;w;    - A rook can move any number of squares along a rank or file, but cannot leap over other pieces. Along with the king, a rook is involved during the king's castling move.
+IMAGE;Image\RockMove.png
+END

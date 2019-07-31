@@ -1,0 +1,9 @@
+20;normal;nw;End of the game
+15;normal;nw;   1.Win	
+14;normal;nw;    Games can be won in the following ways:
+12;normal;nw;       - Checkmate: The player whose turn it is to move is in check and has no legal move to escape check.
+IMAGE;Image\CheckMate.png
+10;normal;center;White is in checkmate, being unable to escape attack by the black bishops.
+12;normal;nw;       - Resignation: Either player may resign, conceding the game to the opponent. It is usually considered poor etiquette to play on in a hopeless position, and for this reason high-level games rarely end in checkmate.
+12;normal;nw;       - Win on time: In games with a time control, a player wins if the opponent runs out of time, even if the opponent has a superior position, as long as the player has a theoretical possibility to checkmate the opponent.
+END
