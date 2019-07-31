@@ -11,9 +11,18 @@ import engine
 game = engine.chess()
 game.initBoard() #initialize a new board
 game.displayBoard()
-game.generateMoves() #return a list, which consists of many small lists(1 small list for 1 piece). 1st element of a small list is coordinates of a piece, the next elements are coordinates of squares which that piece can move to
+
+#return a list, which consists of many small lists(1 small list for 1 piece). 1st element of a small list is coordinates of a piece, the next elements are coordinates of squares which that piece can move to
+#this may return 'win'(black or white win the match),'draw','checkmate'(the king is checked)
+moves = game.generateMoves()
+
 game.makeAMove(7,5,5,5) #move a piece from row 7 col 5 to row 5 col 5
 game.displayBoard() #see the difference
+```
+```python
+#Some useful functions
+game.undo() #undo game
+game.maxi() #return a list which consists of small lists, is the best move. Eg: [[1,2,3,2],[4,3,2,2]], move from row 1,col 2 to row 3 col 2 or row 4 col 3 to row 2 col 2 is the best
 ```
 - You can use engine.py and evaluate.py for your own project(you can use it as a library)
 ### b. How to play?
