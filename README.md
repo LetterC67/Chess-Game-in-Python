@@ -6,16 +6,17 @@
 ### a. How it works?
 - This project consists of 3 Python files: engine.py, evaluated.py and GUI.py.
 - engine.py is used to generate legal moves, evaluated.py is used to evaluate the position(for computer) and GUI.py, of course, create GUI.
+- engine.py(UPDATED v1.1)
 ```python
 import engine
 game = engine.chess()
 game.displayBoard()
-game.legalMoves() #see list of legal moves
+game.legalMoves() #see list of legal moves or it will return 'win','draw','checkmate'
 game.makeAMove('e7e5') #move a piece from row 7 col 5 to row 5 col 5
 game.displayBoard() #see the difference
 ```
+- Some useful functions
 ```python
-#Some useful functions
 game.undo() #undo game
 game.maxi() #return a list which consists of small lists, is the best move. Eg: [[1,2,3,2],[4,3,2,2]], move from row 1,col 2 to row 3 col 2 or row 4 col 3 to row 2 col 2 is the best
 ```
