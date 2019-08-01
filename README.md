@@ -9,14 +9,9 @@
 ```python
 import engine
 game = engine.chess()
-game.initBoard() #initialize a new board
 game.displayBoard()
-
-#return a list, which consists of many small lists(1 small list for 1 piece). 1st element of a small list is coordinates of a piece, the next elements are coordinates of squares which that piece can move to
-#this may return 'win'(black or white win the match),'draw','checkmate'(the king is checked)
-moves = game.generateMoves()
-
-game.makeAMove(7,5,5,5) #move a piece from row 7 col 5 to row 5 col 5
+game.legalMoves() #see list of legal moves
+game.makeAMove('e7e5') #move a piece from row 7 col 5 to row 5 col 5
 game.displayBoard() #see the difference
 ```
 ```python
