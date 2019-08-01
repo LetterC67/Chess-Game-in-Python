@@ -105,6 +105,9 @@ class chess():
     #way to the opponent's king
     self.checkWay = []
 
+    #init
+    self.initBoard()
+    
   def BW(self,x): #black, white or nothing
     if str(x) == ' ':
       return 2
@@ -597,7 +600,9 @@ class chess():
       elif self.canNotMove() or not self.countDown or self.draw():
           return 'draw'
 
-  def makeAMove(self,row,col,rowt,colt,saveToHistory = True):#move
+  def makeAMove(self,row=0,col=0,rowt=0,colt=0,saveToHistory = True):#move
+    if type(row) == str:
+      row,col,rowt,colt = self.toNumber(row)
     no = 0
     if self.currentTurn == self.WHITE:
         no = 1
@@ -719,3 +724,20 @@ class chess():
             continue
           print(self.board[i][j],end = ' ')
       print()
+
+  def toNotation(self,a,b,c,d):
+    return chr(b+96)+chr(9-a+48)+chr(d+96)+chr(9-c+48)
+
+  def toNumber(self,notation):
+    return [-ord(notation[1])+48+9,ord(notation[0])-96,-ord(notation[3])+48+9,ord(notation[2])-96]
+  
+  def legalMoves(self):
+    temp = self.generateMoves()
+    if type(temp) != list:
+      return temp
+    moves = []
+    for move in self.choice:
+      for i in range(1,len(move)):
+        moves.append(self.toNotation(move[0][0],move[0][1],move[i][0],move[i][1]))
+    return moves
+
