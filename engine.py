@@ -10,7 +10,7 @@
 
 
 #import built-in modules
-import random,time,copy
+import random,time,copy,os
 
 #evaluate board for AI chess
 from evaluate import evaluate
@@ -61,6 +61,7 @@ class chess():
     self.evaluated = 0
     self.canmove = []
     self.maxDepth = 3
+    self._isEndGame = 'nothing'
     self.currentTurn = 0
     self.checkMate,self.comPlayer = False,False
     self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle = True,True,True,True #castling ability
@@ -601,8 +602,17 @@ class chess():
           return 'draw'
 
   def makeAMove(self,row=0,col=0,rowt=0,colt=0,saveToHistory = True):#move
+    '''
     if type(row) == str:
+      if row not in self._moves:
+        print('Illegal Move! Please try again')
+        return
       row,col,rowt,colt = self.toNumber(row)
+    else:
+      if self.toNotation(row,col,rowt,colt) not in self._moves:
+        print('Illegal Move! Please try again')
+        return
+    '''
     no = 0
     if self.currentTurn == self.WHITE:
         no = 1
@@ -734,10 +744,24 @@ class chess():
   def legalMoves(self):
     temp = self.generateMoves()
     if type(temp) != list:
+      self._isEndGame = temp
       return temp
     moves = []
     for move in self.choice:
       for i in range(1,len(move)):
         moves.append(self.toNotation(move[0][0],move[0][1],move[i][0],move[i][1]))
+    self._moves = copy.deepcopy(moves)
     return moves
 
+  def gameState(self):
+    return self._isEndGame
+  
+  def computerMove(self,depth = 3):
+    self.wC = 0
+    self.maxDepth = depth
+    self.legalMoves()
+    if self.currentTurn:
+      self.maxi(depth)
+    else:
+      self.mini(depth)
+    return self.canmove
