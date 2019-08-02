@@ -34,7 +34,7 @@ class square():
         self.obj = 0
 
     def setRowCol(self,row,col):
-        #set coordinations
+        #set coordinates
         self.row = row
         self.col = col
 
@@ -722,7 +722,7 @@ class chessGame():
         if not self.promoted or self.isEndGame:
             return
 
-        #x,y are the coordinations
+        #x,y are the coordinates
         x = floor((event.x - self.squareSize/2)/self.squareSize)
         y = floor((event.y - self.squareSize/2)/self.squareSize)
 
