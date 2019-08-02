@@ -18,7 +18,10 @@ game.displayBoard() #see the difference
 - Some useful functions
 ```python
 game.undo() #undo game
-game.maxi() #return a list which consists of small lists, is the best move. Eg: [[1,2,3,2],[4,3,2,2]], move from row 1,col 2 to row 3 col 2 or row 4 col 3 to row 2 col 2 is the best
+game.computerMove(depth = 3) #depth = 3 is default(can be changed to any integer number which is bigger than 0). Return a list which consists of small lists(all of them are best move). Eg: [[1,2,3,2],[4,3,2,2]], move from row 1,col 2 to row 3 col 2 or row 4 col 3 to row 2 col 2 is the best
+game.toNotation(*[1,2,3,2]) # return 'b8b6'
+game.toNumber('b8b6') #return [1,2,3,2]
+game.gameState() #return 'nothing','win','draw'
 ```
 - You can use engine.py and evaluate.py for your own project(you can use it as a library)
 ### b. How to play?
