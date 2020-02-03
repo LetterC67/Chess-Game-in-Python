@@ -34,7 +34,7 @@ class square():
         self.obj = 0
 
     def setRowCol(self,row,col):
-        #set coordinates
+        #set coordinations
         self.row = row
         self.col = col
 
@@ -275,7 +275,7 @@ class chessGame():
         self.comPlayer = True
         self.startGame()
         
-    def startGame(self,res = True,reset = True):
+    def startGame(self,res = True,reset = True,rematch = False):
         global canvas
         #set variables
         self.checkedCol,self.checkRow = 0,0
@@ -283,7 +283,9 @@ class chessGame():
         self.saved = True
         self.Retry = False
         self.last = []
-        self.result = [0,0]
+
+        if not rematch:
+            self.result = [0,0]
         
         if reset:
             #new game
@@ -559,7 +561,7 @@ class chessGame():
         lb.pack(side = LEFT)
 
         #double-click to play
-        lb.bind('<Double-Button-1>',partial(self._loadPuzzle,lb,'data\\puzzles\\sth.txt',ROOT))
+        lb.bind('<Double-Button-1>',partial(self._loadPuzzle,lb,'data\\puzzles\\puzzles.txt',ROOT))
 
     def _loadPuzzle(self,lb,FILE,root,event):
         index = lb.curselection()[0]
@@ -708,7 +710,7 @@ class chessGame():
 
     def _startGame(self):
         self.window.destroy()
-        self.startGame()
+        self.newGame()
 
     def exit(self,end,popup = True):
         if popup:
@@ -722,7 +724,7 @@ class chessGame():
         if not self.promoted or self.isEndGame:
             return
 
-        #x,y are the coordinates
+        #x,y are the coordinations
         x = floor((event.x - self.squareSize/2)/self.squareSize)
         y = floor((event.y - self.squareSize/2)/self.squareSize)
 
@@ -817,6 +819,7 @@ class chessGame():
                 print(time.time()-tt,self.game.evaluated)
 
                 #pick randomly from best choices list and move
+                print(self.game.canmove)
                 a,b,c,d = random.choice(self.game.canmove)
                 t = self.game.makeAMove(a,b,c,d)
 
@@ -882,7 +885,7 @@ class chessGame():
             if self.comPlayer:
                 Button(frame,text = 'RETRY',font = ('Comic Sans MS',15,'normal'),command = partial(self.retry,self.window),width = 10).pack(side = LEFT)
             if not self.puzzle:
-                Button(self.window,text = 'REMATCH',font = ('Comic Sans MS',15,'normal'),command = self.startGame,width = 10).pack(pady = 10)
+                Button(self.window,text = 'REMATCH',font = ('Comic Sans MS',15,'normal'),command = partial(self.startGame,rematch = True),width = 10).pack(pady = 10)
         elif checkRes == 'draw' or res:
             self.isEndGame= True
             self.saved = True
