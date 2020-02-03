@@ -1,11 +1,11 @@
 # Chess Game
 ## 1. Overall
 - This is a very simple chess game which is created by using Python. This project was created for entertainment and education purposes.
-- Only a little knowledge in Python is required to read this code (I can only write very simple code)
+- Only a little knowledge in Python is required to read this code (as this project is very simple and not optimized by using complicated algorithm; however, some lines are a little confusing, I will improve it later)
 ## 2. Project
 ### a. How it works?
-- This project consists of 3 Python files: engine.py, evaluated.py and GUI.py.
-- engine.py is used to generate legal moves, evaluated.py is used to evaluate the position(for computer) and GUI.py, of course, create GUI.
+- This project consists of 3 Python files (engine.py, evaluated.py and GUI.py) and some puzzles, pictures...
+- engine.py is used to generate legal moves, evaluated.py is used to evaluate the position(for computer) and GUI.py, of course, creates GUI.
 - engine.py(UPDATED v1.1.1)
 ```python
 import engine
@@ -27,7 +27,7 @@ game.gameState() #return 'win','draw' (NOTE: for current player turn)
 ### b. How to play?
 - User can play 2 mode: computer vs human(easy, medium and hard) or human vs human. 
 - This game has save and load game feature.
-- Chess puzzles are available
+- Chess puzzles are available (human vs computer) 
 ## 3. Contributing
 - Any comments, pull requests are welcome!
 ## 4. License
