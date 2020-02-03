@@ -428,7 +428,8 @@ class chess():
     checkRes = self.generateMoves()
 
     if checkRes == 'win':
-      return -99999
+      print('hoho')
+      return 99999
     elif checkRes == 'draw':
       return 0
     #temporary
@@ -439,6 +440,8 @@ class chess():
         self.evaluated += 1
         self.makeAMove(row,col,rowt,colt,False)
         point = self.mini(depth-1)
+        if point == 99999:
+          print(row,col,rowt,colt,bestVal)
         if point == bestVal:
           if depth == self.maxDepth:
             self.canmove.append([row,col,rowt,colt])
@@ -457,7 +460,9 @@ class chess():
     bestVal = -99999
     checkRes = self.generateMoves()
     if checkRes =='win':
-      return 99999
+      self.displayBoard()
+      print('HO ho')
+      return -99999
     elif checkRes == 'draw':
       return 0
     t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15 = self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,copy.deepcopy(self.choice),self.enPassantCol,self.enPassant,copy.deepcopy(self.board),self.wC,self.checkMate,self.countDown,copy.deepcopy(self.checkWay),copy.deepcopy(self.canMove)
