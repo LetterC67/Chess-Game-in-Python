@@ -6,7 +6,7 @@
 ### a. How it works?
 - This project consists of 3 Python files (engine.py, evaluated.py and GUI.py) and some puzzles, pictures...
 - engine.py is used to generate legal moves, evaluated.py is used to evaluate the position(for computer) and GUI.py, of course, creates GUI.
-- engine.py(UPDATED v1.1.1)
+- engine.py(UPDATED v1.1.2)
 ```python
 import engine
 game = engine.chess()
