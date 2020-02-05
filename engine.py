@@ -8,6 +8,7 @@
 #AI chess from here: https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/
 #This uses Minimax algorithm, find out here: https://en.wikipedia.org/wiki/Minimax
 
+#Chess engine v1.1.2
 
 #import built-in modules
 import random,time,copy,os
@@ -67,7 +68,7 @@ class chess():
     self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle = True,True,True,True #castling ability
     self.enPassant,self.enPassantCol = False,0 #en passsant
     self.wKMoved,self.bKMoved = False,False #white king moved, black king moved (for castling)
-    self.choice,self.canMove,self.match,self.specMove = [],[],[],[]
+    self.choice,self.match,self.specMove = [],[],[]
     self.match.append(state())
     self.countDown = 50 #50 moves rule
     self.num = -1
@@ -433,7 +434,7 @@ class chess():
     elif checkRes == 'draw':
       return 0
     #temporary
-    t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15 = self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,copy.deepcopy(self.choice),self.enPassantCol,self.enPassant,copy.deepcopy(self.board),self.wC,self.checkMate,self.countDown,copy.deepcopy(self.checkWay),copy.deepcopy(self.canMove)
+    t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14 = self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,copy.deepcopy(self.choice),self.enPassantCol,self.enPassant,copy.deepcopy(self.board),self.wC,self.checkMate,self.countDown,copy.deepcopy(self.checkWay)
     for i in t7:
       for j in range(1,len(i)):
         row,col,rowt,colt = i[0][0],i[0][1],i[j][0],i[j][1]
@@ -451,7 +452,7 @@ class chess():
             self.canmove = [[row,col,rowt,colt]]
         self.currentTurn ^= 1
         #restore
-        self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,self.choice,self.enPassantCol,self.enPassant,self.board,self.wC,self.checkMate,self.countDown,self.checkWay,self.canMove = t1,t2,t3,t4,t5,t6,copy.deepcopy(t7),t8,t9,copy.deepcopy(t10),t11,t12,t13,copy.deepcopy(t14),copy.deepcopy(t15)
+        self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,self.choice,self.enPassantCol,self.enPassant,self.board,self.wC,self.checkMate,self.countDown,self.checkWay = t1,t2,t3,t4,t5,t6,copy.deepcopy(t7),t8,t9,copy.deepcopy(t10),t11,t12,t13,copy.deepcopy(t14)
     return bestVal
   
   def mini(self,depth):#for computer, minimax algorithm
@@ -465,7 +466,7 @@ class chess():
       return -99999
     elif checkRes == 'draw':
       return 0
-    t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14,t15 = self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,copy.deepcopy(self.choice),self.enPassantCol,self.enPassant,copy.deepcopy(self.board),self.wC,self.checkMate,self.countDown,copy.deepcopy(self.checkWay),copy.deepcopy(self.canMove)
+    t1,t2,t3,t4,t5,t6,t7,t8,t9,t10,t11,t12,t13,t14 = self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,copy.deepcopy(self.choice),self.enPassantCol,self.enPassant,copy.deepcopy(self.board),self.wC,self.checkMate,self.countDown,copy.deepcopy(self.checkWay)
     for i in t7:
       for j in range(1,len(i)):
         row,col,rowt,colt = i[0][0],i[0][1],i[j][0],i[j][1]
@@ -480,7 +481,7 @@ class chess():
           if depth == self.maxDepth:
             self.canmove = [[row,col,rowt,colt]]
         self.currentTurn ^= 1
-        self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,self.choice,self.enPassantCol,self.enPassant,self.board,self.wC,self.checkMate,self.countDown,self.checkWay,self.canMove = t1,t2,t3,t4,t5,t6,copy.deepcopy(t7),t8,t9,copy.deepcopy(t10),t11,t12,t13,copy.deepcopy(t14),copy.deepcopy(t15)
+        self.bKMoved,self.wKMoved,self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle,self.choice,self.enPassantCol,self.enPassant,self.board,self.wC,self.checkMate,self.countDown,self.checkWay = t1,t2,t3,t4,t5,t6,copy.deepcopy(t7),t8,t9,copy.deepcopy(t10),t11,t12,t13,copy.deepcopy(t14)
     return bestVal
 
   def dangerGen(self,no):#this will generate list of squares which king cannot move to
@@ -598,7 +599,13 @@ class chess():
                   if self.board[i][j] == [self.BKING,self.WKING][no]:
                     if len(self.choice[self.findPos(i,j)]) == 1:
                       break
-                    canMove = [i,j]
+
+                    #only king can move
+                    choice = self.choice[self.findPos(i,j)]
+                    self.choice = [[]]
+                    for i in choice:
+                      self.choice[0].append(i)
+                    
                     self.checkMate = False
                     return 'checkmate'
       if self.checkMate:
@@ -718,7 +725,7 @@ class chess():
     self.bQueenSideCastle,self.bKingSideCastle,self.wQueenSideCastle,self.wKingSideCastle = True,True,True,True
     self.enPassant,self.enPassantCol = False,0
     self.wKMoved,self.bKMoved = False,False
-    self.choice,self.canMove,self.cantMove,self.specMove,self.match = [],[],[],[],[]
+    self.choice,self.cantMove,self.specMove,self.match = [],[],[],[]
     self.match.append(state())
     self.countDown = 50
     self.num = -1
